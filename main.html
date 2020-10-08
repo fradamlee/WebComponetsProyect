@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+     initial-scale=1.0"
+    />
+    <title>Web Componets Example</title>
+
+    <link rel="stylesheet" href="./Componets/UserCard/user_card.css" />
+  </head>
+  <body>
+    <style>
+      h3 {
+        color: purple;
+      }
+    </style>
+
+    <h3>Hello World</h3>
+
+    <!-- Para importar librería de jQuery -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+
+    <!-- Este es el punto donde instancian los webComponets a traves de las etiquetas HTML -->
+    <!-- También dónde se asignan TODOS los artibutos de entrada que se muestran en Información de Objeto (barra lateral) y que el usuario puede modificar -->
+    <!-- Por lo tanto se busca que también a atributos de CSS se le pueda asignar propiedades desde aquí, tal es el caso de: color = "red", con el que se está experimentando -->
+    <user-card
+      id="user-Elena"
+      color="red"
+      name="Elena"
+      avatar="https://randomuser.me/api/portraits/women/2.jpg"
+    ></user-card>
+    <user-card
+      name="Gail"
+      avatar="https://randomuser.me/api/portraits/men/7.jpg"
+      email="evmaloo171@gmail.com"
+    ></user-card>
+    <user-card
+      name="Miray"
+      avatar="https://randomuser.me/api/portraits/women/12.jpg"
+      email="miraymuratt@live.com"
+    ></user-card>
+    <user-card
+      name="Clay"
+      avatar="https://randomuser.me/api/portraits/men/1.jpg"
+    ></user-card>
+
+    <script src="./Componets/UserCard/user_card.js"></script>
+
+    <!-- En este script se busca asignarle a las propiedades css genericas el valor que provean los atibutos de entrada de las etiquetas -->
+    <!-- Solo se esta tratando por ahora de asignarle elatributo de entrada "color" a la propiedad "background" del boton "Hide" -->
+    <script>
+      {
+        //Aqui se estan obteniendo el DOM del botton
+        const box = document.querySelectorAll(`.button`)[0];
+
+        // Aqui se estan obteniedo los valores CSS del boton Hide
+        var boxStyle = getComputedStyle(box);
+
+        // Aquí se está obteniendo el valor del CSS gererico que buscamos
+        var boxMainColor = boxStyle.getPropertyValue("--prueba");
+
+        // Aquí no estoy seguro que se esta tratando de obtener pero me estoy basando en el video https://www.youtube.com/watch?v=FgSfzJPyxhg
+        // Minuto 1:70
+        const root = document.documentElement;
+
+        // Aquí estoy tratando de asignarle un nuevo valor a la propiedad generica de CSS, en este caso solo "red", pero si funcionará la idea sería asignarle el atributo: "color"
+        root.style.setProperty(boxMainColor, "red");
+      }
+    </script>
+  </body>
+</html>

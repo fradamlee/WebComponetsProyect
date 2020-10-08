@@ -1,0 +1,50 @@
+texto {
+    color: red;
+}
+
+
+/* CSS Custom Properties, para valores genericos  */
+
+
+/* En :root se declaran los valores por default o iniciales */
+
+:root {
+    --prueba: darkorchid;
+    --main-txt-color: #333;
+}
+
+
+/* Se asigna una propiedad generica con var(--nombre_variable) */
+
+body {
+    color: var(--main-txt-color);
+}
+
+.text {
+    color: burlywood;
+}
+
+.user-card {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: darkorchid 5px solid;
+}
+
+.imagen {
+    width: 100%;
+}
+
+.button {
+    cursor: pointer;
+    background: var(--prueba);
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: var(--prueba);
+}
